@@ -23,6 +23,6 @@ Vi må så velge å bruke det nye virtuelle miljøet. Velg CTRL+Shift+P, og søk
 
 Hvis du så åpner ein ny terminal, så skal det nye miljøet automatisk bli valgt. Du vil sjå at det fungerer ved at det står (.venv) i terminalen:
 
-    <img width="400" alt="image" src="https://github.com/joaolsbe/BE-python/assets/104839676/a165f2e3-107c-496f-a279-9e725263ddcc">
+<img width="400" alt="image" src="https://github.com/joaolsbe/BE-python/assets/104839676/a165f2e3-107c-496f-a279-9e725263ddcc">
 
 
