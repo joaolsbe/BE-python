@@ -35,3 +35,19 @@ python = "^3.9"
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 ```
+
+Vi ønsker også å strukturere mappen bedre. Poetry har ein foreslått struktur for pakker. Denne strukturen kan man se i dokumentasjonen her: 
+https://python-poetry.org/docs/basic-usage/
+
+Lag nå en lik struktur på prosjektet som er foreslått her. Prosjektet vårt inneholder også noen data-filer, som gjerne kan legges i en egen mappe. Prosjektet vil da bli seende slik ut: 
+
+<img width="600" alt="image" src="https://github.com/joaolsbe/BE-python/assets/104839676/7684d53a-0d1d-4e49-b784-5086530c27fb">
+
+La oss nå kikke på analysis.py. Gule streker på pakkene polars og dotenv betyr at dette er pakker vi ikkje har installert. Vi installerer disse gjennom poetry:
+
+```
+poetry add polars
+poetry add dotenv
+```
+
+Legg merke til at `pyproject.toml` oppdateres med nye dependencies, og at det genereres ei fil som heiter `poetry.lock`. Denne inneholder pakkeversjoner, og hjelper oss å sørge for at alle som jobber på et prosjekt bruker samme versjoner. Denne skal derfor inn i versjonskontroll. 
