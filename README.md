@@ -1,21 +1,18 @@
-# Del 1 - virtual environments
+# Del 3 - typing
 
-Velkommen til koden. Her finnes det bare ei py-fil, `analysis.py`.
+Type hints er din venn!
 
-Denne kan kjøres ved å skrive `python analysis.py` i terminal. Men hvis vi kjører denne uten videre så vil du få følgende feilmelding: 
-
-```
-Traceback (most recent call last):
-  File "C:\Users\joakim.olsen\Documents\git\BE-python\BE-python\analysis.py", line 1, in <module>
-    import polars as pl
-ModuleNotFoundError: No module named 'polars'
-```
-
-Vi må altså installere pakken polars. Men, dette skal vi gjøre i et virtuelt python-miljø. Det finnes ulike måter å gjøre dette på, men her skal vi bruke python sin innebygde venv. Et nytt virtuelt miljø kan lages ved: 
+Argumenter kan gis typer ved å legge til `: type` etter argumentet, mens return-typen til ein funksjon gis ved å skrive ` -> type`:
 
 ```
-python -m venv .venv
+def func(arg1: str, arg2: list[str], arg3: dict[str, int], arg4: pl.DataFrame) -> pl.DataFrame:
+    ....
 ```
 
-Vi må så velge å bruke det nye virtuelle miljøet. Velg CTRL+Shift+P, og søk opp "Python: Select interpreter". Velg det nye virtuelle miljøet (.venv). 
+Bruk det, alltid!
 
+Man kan også gi typer ved variabeldefinisjon (self om dette ofte er unødvendig):
+
+```
+number: int = 60
+```
