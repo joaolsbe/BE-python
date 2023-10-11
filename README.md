@@ -52,3 +52,21 @@ poetry add polars
 Legg merke til at `pyproject.toml` oppdateres med nye dependencies, og at det genereres ei fil som heiter `poetry.lock`. Denne inneholder pakkeversjoner, og hjelper oss å sørge for at alle som jobber på et prosjekt bruker samme versjoner. Denne skal derfor inn i versjonskontroll. 
 
 Vi skal nå kunne kjøre koden i analysis.py.
+
+Til slutt skal vi prøve å bygge prosjektet vårt. Dette kan gjøres ved å kjøre
+
+```
+poetry build
+```
+
+Da vil prosjektet bli bygd, og en wheel-fil vil dukke opp under mappen `./dist/`. Dette er en fullverdig python-modul, og hvis du ønsker å pakketere og gjenbruke din egen kode så kan denne installeres via 
+
+```
+pip install ".../bepythonjo-0.1.0-py3-none-any.whl"
+```
+
+Les meir om poetry her: 
+
+https://python-poetry.org/
+
+Gå nå videre til Part-3-typing
