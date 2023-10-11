@@ -1,4 +1,4 @@
-# BE-python
+s# BE-python
 
 Hei!
 
@@ -13,4 +13,4 @@ For et så smooth kurs som mulig, er det supert om du kan gjøre følgende før 
 
     <img width="600" alt="image" src="https://github.com/joaolsbe/BE-python/assets/104839676/e02acf2b-ff51-4b42-99f8-68aa07124b26">
  
-4. Klon dette repoet. Gå til "Source Control" i menyen til venstre, velg "Clone Repository". Bruk url'en `url`.
+4. Klon dette repoet. Gå til "Source Control" i menyen til venstre, velg "Clone Repository". Bruk url'en `https://github.com/joaolsbe/BE-python`.
