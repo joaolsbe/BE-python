@@ -8,7 +8,7 @@ Vi skal nå bruke pytest. Vi legger først pakken til i prosjektet som ein devel
 poetry add pytest -G dev
 ```
 
-Når pytest skal kjøre tester så leiter den etter filer med navn `test_*.py, og funksjoner som heiter `test_*`. Vi lager tester ved å importere og kjøre funksjonen vi ønsker å teste, og så "asserte" at resultatet er som vi forventer. Lag ei fil under tests som heiter `test_users.py`, og legg inn følgende test:
+Når pytest skal kjøre tester så leiter den etter filer med navn `test_*.py`, og funksjoner som heiter `test_*`. Vi lager tester ved å importere og kjøre funksjonen vi ønsker å teste, og så "asserte" at resultatet er som vi forventer. Lag ei fil under tests som heiter `test_users.py`, og legg inn følgende test:
 
 ```
 from bepythonjo.analysis import analysis5_GetUserAgesCount
