@@ -22,7 +22,7 @@ Det opprettes nå ein ny mappe (.venv).
 Vi må så velge å bruke det nye virtuelle miljøet. Velg CTRL+Shift+P, og søk opp "Python: Select interpreter". Velg det nye virtuelle miljøet (.venv). 
 
 Hvis du så åpner ein ny terminal, så skal det nye miljøet automatisk bli valgt. Du vil sjå at det fungerer ved at det står (.venv) i terminalen:
-    
-    <img width="400" alt="image" src="https://github.com/joaolsbe/BE-python/assets/104839676/1785ba5d-8095-42cb-a3d9-922141262cb5">
+
+    <img width="400" alt="image" src="https://github.com/joaolsbe/BE-python/assets/104839676/a165f2e3-107c-496f-a279-9e725263ddcc">
 
 
