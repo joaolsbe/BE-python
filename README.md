@@ -1,4 +1,4 @@
-# BE-python
+# Python-kurs
 
 Hei!
 
