@@ -14,7 +14,7 @@ For et så smooth kurs som mulig, er det supert om du kan gjøre følgende før 
     <img width="600" alt="image" src="https://github.com/joaolsbe/BE-python/assets/104839676/e02acf2b-ff51-4b42-99f8-68aa07124b26">
  
 4. Klon dette repoet. Gå til "Source Control" i menyen til venstre, velg "Clone Repository". Bruk url'en 
-    `https://github.com/joaolsbe/BE-python`. Velg et passende sted å lagre repoet (f. eks. under Documents/ eller Documents/git/
+    `https://github.com/joaolsbe/BE-python`. Velg et passende sted å lagre repoet (f. eks. under Documents/ eller Documents/git/)
 
     <img width="900" alt="image" src="https://github.com/joaolsbe/BE-python/assets/104839676/a40f1b83-d2a4-4e8e-ba4e-3c599836ab19">
 
