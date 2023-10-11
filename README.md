@@ -1,23 +1,21 @@
-s# BE-python
+# Del 1 - virtual environments
 
-Hei!
+Velkommen til koden. Her finnes det bare ei py-fil, `analysis.py`.
 
-For et så smooth kurs som mulig, er det supert om du kan gjøre følgende før kurset starter. Dersom du får problemer, send melding til meg (Joakim), eller møt opp ein halvtime før kurset starter, så kan vi fikse det sammen.
+Denne kan kjøres ved å skrive `python analysis.py` i terminal. Men hvis vi kjører denne uten videre så vil du få følgende feilmelding: 
 
-1. Installer python (med pip, er med by default), git og VSCode.
-2. Åpne terminal inne i VSCode, og test å kjøre `python --version`. Dersom python er riktig installert skal du få tilbake et versjonsnummer, ala dette:
-   
-    <img width="300" alt="image" src="https://github.com/joaolsbe/BE-python/assets/104839676/3afad543-1b84-4480-b57c-b95dd17da234">
+```
+Traceback (most recent call last):
+  File "C:\Users\joakim.olsen\Documents\git\BE-python\BE-python\analysis.py", line 1, in <module>
+    import polars as pl
+ModuleNotFoundError: No module named 'polars'
+```
 
-3. Test å kjøre `pip --version`. Dersom pip er riktig installert skal du få tilbake et versjonsnummer, ala dette:
+Vi må altså installere pakken polars. Men, dette skal vi gjøre i et virtuelt python-miljø. Det finnes ulike måter å gjøre dette på, men her skal vi bruke python sin innebygde venv. Et nytt virtuelt miljø kan lages ved: 
 
-    <img width="600" alt="image" src="https://github.com/joaolsbe/BE-python/assets/104839676/e02acf2b-ff51-4b42-99f8-68aa07124b26">
- 
-4. Klon dette repoet. Gå til "Source Control" i menyen til venstre, velg "Clone Repository". Bruk url'en 
-    `https://github.com/joaolsbe/BE-python`. Velg et passende sted å lagre repoet (f. eks. under Documents/ eller Documents/git/
+```
+python -m venv .venv
+```
 
-    <img width="900" alt="image" src="https://github.com/joaolsbe/BE-python/assets/104839676/a40f1b83-d2a4-4e8e-ba4e-3c599836ab19">
+Vi må så velge å bruke det nye virtuelle miljøet. Velg CTRL+Shift+P, og søk opp "Python: Select interpreter". Velg det nye virtuelle miljøet (.venv). 
 
-5. Velg "Open" i popup-menyen som dukker opp (eller velg "file>open folder" og naviger til det nye repoet BE-python). Du skal no ha klona repoet vi skal jobbe med, og skal kunne finne igjen denne readme-fila:
-
-    <img width="900" alt="image" src="https://github.com/joaolsbe/BE-python/assets/104839676/dff25f84-02eb-4ec0-8f59-fa9971439444">
