@@ -71,10 +71,15 @@ https://python-poetry.org/
 
 Før vi går videre skal vi også legge til linting og auto-formattering. Gå til extensions i vscode og installer "flake8". Hvis du nå går til analysis.py så skal det dukke opp gule/røde linjer der flake8 meiner koden har strukturelle feil. Hold over streker for å sjå kva den klager på. 
 
-Opprett så en mappe som heter `.vscode`, og ei fil som heiter `settings.json`. Her putter du følgende:
+Installer så extension "Black Formatter". Opprett så en mappe som heter `.vscode`, og ei fil som heiter `settings.json`. Her putter du følgende:
 
 ```
-
+{
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true,
+}
 ```
+
+Den første linja gjør at vi bruker "black" som formatterer, og at vi automatisk formatterer når vi lagrer. Hvis du nå går til `analysis.py` og lagrer fila, så vil du sjå at den automatisk formatteres av "black". 
 
 Gå nå videre til Part-3-typing
