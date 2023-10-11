@@ -2,7 +2,7 @@
 
 Hei!
 
-For et så smooth kurs som mulig, er det supert om du kan gjøre følgende før kurset starter. Dersom du får problemer, send melding til meg (Joakim), eller møt opp ein halvtime før kurset starter, så kan vi fikse det sammen.
+For et så smooth kurs som mulig, er det supert om du kan gjøre følgende før kurset starter. Dersom du får problemer, send melding til meg (Joakim), eller møt opp ein halvtime før kurset starter i kjøkkenkroken, så kan vi fikse det sammen.
 
 1. Installer python (med pip, er med by default), git og VSCode.
 2. Åpne terminal inne i VSCode, og test å kjøre `python --version`. Dersom python er riktig installert skal du få tilbake et versjonsnummer, ala dette:
