@@ -80,7 +80,7 @@ print(df)
 print(df.columns)
 
 
-def analysis5_GetUserAgesCount(df: pl.DataFrame) -> None:
+def analysis5_GetUserAgesCount(df: pl.DataFrame) -> pl.DataFrame:
     df_Binned = df.filter(pl.col("Age").is_not_nan()).with_columns(
         pl.col("Age").cut([20, 30, 40, 50, 60]).alias("AgeBin")
     )
@@ -90,6 +90,7 @@ def analysis5_GetUserAgesCount(df: pl.DataFrame) -> None:
     df_Binned = df_Grouped.sort("NumUsers", descending=True).limit(5)
     df = df_Binned
     print(df_Binned)
+    return df
 
 
 print("\n\n\nMost popular age bins")
