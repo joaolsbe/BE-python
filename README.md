@@ -11,11 +11,18 @@ Traceback (most recent call last):
 ModuleNotFoundError: No module named 'polars'
 ```
 
-Vi må altså installere pakken polars. Men, dette skal vi gjøre i et virtuelt python-miljø. Det finnes ulike måter å gjøre dette på, men her skal vi bruke python sin innebygde venv. Et nytt virtuelt miljø kan lages ved: 
+Vi må altså installere pakken polars. Men, dette **skal** vi alltid gjøre i et virtuelt python-miljø. Det finnes ulike måter å gjøre dette på, men her skal vi bruke python sin innebygde venv. Et nytt virtuelt miljø kan lages ved: 
 
 ```
 python -m venv .venv
 ```
 
+Det opprettes nå ein ny mappe (.venv).
+
 Vi må så velge å bruke det nye virtuelle miljøet. Velg CTRL+Shift+P, og søk opp "Python: Select interpreter". Velg det nye virtuelle miljøet (.venv). 
+
+Hvis du så åpner ein ny terminal, så skal det nye miljøet automatisk bli valgt. Du vil sjå at det fungerer ved at det står (.venv) i terminalen:
+    
+    <img width="400" alt="image" src="https://github.com/joaolsbe/BE-python/assets/104839676/1785ba5d-8095-42cb-a3d9-922141262cb5">
+
 
