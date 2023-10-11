@@ -1,18 +1,7 @@
-# Del 3 - typing
+# Del 5 - objektorientert python
 
-Type hints er din venn!
+Objektorientert kodeparadigmet er svært populært for ein grunn. Hvis et kodeprosjekt er stort og skal inneholde mye logikk, er det stor sannsynlighet for at koden kan skrives mer ryddig, og enklere å forstå og jobbe med dersom man skriver objektorienter. 
 
-Argumenter kan gis typer ved å legge til `: type` etter argumentet, mens return-typen til ein funksjon gis ved å skrive ` -> type`:
+Python er et objektorientert språk, der alt er objekter. Bruk det der det er hensiktsmessig!
 
-```
-def func(arg1: str, arg2: list[str], arg3: dict[str, int], arg4: pl.DataFrame) -> pl.DataFrame:
-    ....
-```
-
-Bruk det, alltid!
-
-Man kan også gi typer ved variabeldefinisjon (self om dette ofte er unødvendig):
-
-```
-number: int = 60
-```
+Vi skal nå refakturere koden vår, ved å bruke objektorientert python.
