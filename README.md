@@ -69,4 +69,12 @@ Les meir om poetry her:
 
 https://python-poetry.org/
 
+Før vi går videre skal vi også legge til linting og auto-formattering. Gå til extensions i vscode og installer "flake8". Hvis du nå går til analysis.py så skal det dukke opp gule/røde linjer der flake8 meiner koden har strukturelle feil. Hold over streker for å sjå kva den klager på. 
+
+Opprett så en mappe som heter `.vscode`, og ei fil som heiter `settings.json`. Her putter du følgende:
+
+```
+
+```
+
 Gå nå videre til Part-3-typing
