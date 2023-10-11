@@ -47,7 +47,8 @@ La oss nå kikke på analysis.py. Gule streker på pakkene polars og dotenv bety
 
 ```
 poetry add polars
-poetry add dotenv
 ```
 
 Legg merke til at `pyproject.toml` oppdateres med nye dependencies, og at det genereres ei fil som heiter `poetry.lock`. Denne inneholder pakkeversjoner, og hjelper oss å sørge for at alle som jobber på et prosjekt bruker samme versjoner. Denne skal derfor inn i versjonskontroll. 
+
+Vi skal nå kunne kjøre koden i analysis.py.
