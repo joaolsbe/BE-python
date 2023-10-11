@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "bepythonjo"
+version = "0.1.0"
+description = "Dette er en pakke vi utvikler i forbindelse med best practice python kurs."
+authors = ["Joakim Olsen"]
+license = "Ingen"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+polars = "^0.19.8"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
