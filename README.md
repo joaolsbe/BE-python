@@ -1,4 +1,4 @@
-s# BE-python
+# BE-python
 
 Hei!
 
