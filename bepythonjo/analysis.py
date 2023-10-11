@@ -12,7 +12,7 @@ print(df)
 print(df.columns)
 
 
-def analysis1_getMostStreamedSongs(df):
+def analysis1_getMostStreamedSongs(df: pl.DataFrame) -> None:
     df = (
         df.select("track_name", "artist(s)_name", "streams")
         .sort("streams", descending=True)
@@ -21,7 +21,7 @@ def analysis1_getMostStreamedSongs(df):
     print(df)
 
 
-def analysis2_getMostPopularByBPM(df):
+def analysis2_getMostPopularByBPM(df: pl.DataFrame) -> None:
     df_Binned = df.filter(pl.col("bpm").is_not_nan()).with_columns(
         pl.col("bpm").qcut(20).alias("BPMBin")
     )
@@ -32,7 +32,7 @@ def analysis2_getMostPopularByBPM(df):
     print(df_Binned)
 
 
-def analysis3_getDanceability_ByBin(df):
+def analysis3_getDanceability_ByBin(df: pl.DataFrame) -> None:
     df_Binned = df.filter(pl.col("bpm").is_not_nan()).with_columns(
         pl.col("bpm").qcut(20).alias("BPMBin")
     )
@@ -43,7 +43,7 @@ def analysis3_getDanceability_ByBin(df):
     print(df_Binned)
 
 
-def analysis4_getTop30SongsBy(df):
+def analysis4_getTop30SongsBy(df: pl.DataFrame) -> None:
     df_Binned = df.filter(pl.col("bpm").is_not_nan()).with_columns(
         pl.col("bpm").qcut(20).alias("BPMBin")
     )
@@ -80,7 +80,7 @@ print(df)
 print(df.columns)
 
 
-def analysis5_GetUserAgesCount(df):
+def analysis5_GetUserAgesCount(df: pl.DataFrame) -> None:
     df_Binned = df.filter(pl.col("Age").is_not_nan()).with_columns(
         pl.col("Age").cut([20, 30, 40, 50, 60]).alias("AgeBin")
     )
