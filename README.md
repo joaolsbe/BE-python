@@ -25,4 +25,6 @@ Hvis du så åpner ein ny terminal, så skal det nye miljøet automatisk bli val
 
 <img width="400" alt="image" src="https://github.com/joaolsbe/BE-python/assets/104839676/a165f2e3-107c-496f-a279-9e725263ddcc">
 
+Vi kan no trygt installere pakker, men til det skal vi bruke ein såkalt "Package manager", nemlig poetry!
 
+Gå til neste steg (branch): Part-2-poetry
