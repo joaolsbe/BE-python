@@ -9,7 +9,7 @@ def func(arg1: str, arg2: list[str], arg3: dict[str, int], arg4: pl.DataFrame) -
     ....
 ```
 
-Bruk det, alltid!
+Bruk det, **alltid**!
 
 Man kan også gi typer ved variabeldefinisjon (self om dette ofte er unødvendig):
 
