@@ -1,18 +1,16 @@
 import polars as pl
-from zipfile import ZipFile
+from .zipdb import ZipDb
 
 
-with ZipFile("database/most_played_songs.zip", "r") as zip:
-    filename = zip.filelist[0].filename
-    f = zip.read(filename)
-    df = pl.read_csv(f, separator=",", encoding="ISO-8859-1")
+myclass = ZipDb(table_name="most_played_songs")
+df = myclass.read()
 
 print("Sample stream data")
 print(df)
 print(df.columns)
 
 
-def analysis1_getMostStreamedSongs(df: pl.DataFrame) -> None:
+def get_most_streamed_songs(df: pl.DataFrame) -> None:
     df = (
         df.select("track_name", "artist(s)_name", "streams")
         .sort("streams", descending=True)
@@ -57,7 +55,7 @@ def analysis4_getTop30SongsBy(df: pl.DataFrame) -> None:
 
 
 print("\n\n\n5 most streamed songs:")
-analysis1_getMostStreamedSongs(df)
+get_most_streamed_songs(df)
 
 print("\n\n\nMost popular BPMs")
 analysis2_getMostPopularByBPM(df)
@@ -69,10 +67,8 @@ print("\n\n\nMost popular songs within most danceable BPM")
 analysis4_getTop30SongsBy(df)
 
 
-with ZipFile("database/users.zip", "r") as zip:
-    filename = zip.filelist[0].filename
-    f = zip.read(filename)
-    df = pl.read_csv(f, separator=",", encoding="ISO-8859-1")
+myclass = ZipDb(table_name="users")
+df = myclass.read()
 
 
 print("\n\n\nSample user data")

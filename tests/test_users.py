@@ -10,6 +10,7 @@ def test_user_ages():
         df = pl.read_csv(f, separator=",", encoding="ISO-8859-1")
 
     df = analysis5_GetUserAgesCount(df)
+    print(df)
     d = df.to_dicts()
 
     assert d[0]["AgeBin"] == "(30, 40]"
