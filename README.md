@@ -46,7 +46,8 @@ Sørg for å sette VSCode til å bruke det nye miljøet. Dette burde dukke opp s
 
 Dersom du no opnar ein ny terminal, så skal det nye miljøet automatisk bli valgt. Du vil sjå at det fungerer ved at det står `(be-python)` i terminalen:
 
-<img width="400" alt="image" src="https://github.com/joaolsbe/BE-python/assets/104839676/a165f2e3-107c-496f-a279-9e725263ddcc">
+<img width="412" alt="image" src="https://github.com/user-attachments/assets/18f6132d-68ee-4de4-8cdc-617399440914">
+
 
 Pakken er no installert, som vil bli synlig ved å gå inn i `analysis.py` og sjå at den gule streken under `polars` no er borte, og referansen til `polars` no har blitt riktig fargelagt. Vi kan også endelig køyre koden vår med suksess: 
 
