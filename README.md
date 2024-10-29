@@ -1,67 +1,52 @@
-# Del 1 - package management
+# Del 2 - Tools og linting
 
-Velkommen til koden. Her finnes det bare ei py-fil, `analysis.py`.
+Vi skal nå sette opp prosjektet vårt til å bruke "tools", av typen linting. Tools er ein generell samlebetegnelse på nyttige verktøy for oss som utviklere. I dette kurset skal vi kun jobbe med ett, nemlig "ruff". Dette er eit formateringsverktøy (linting) som hjelper oss å skrive ryddig kode.
 
-Denne kan kjøres ved å skrive `uv run analysis.py` i terminal. Men hvis vi kjører denne uten videre så vil du få følgende feilmelding: 
+For den beste opplevelsen her bør det installeres inn i kodevertøyet vi jobber i (VSCode). Gå til "extensions" og installer "ruff". 
 
-```
-Traceback (most recent call last):
-  File "C:\Users\joakim.olsen\Documents\git\BE-python\BE-python\analysis.py", line 1, in <module>
-    import polars as pl
-ModuleNotFoundError: No module named 'polars'
-```
-
-Dette kan du også sjå dersom du opnar fila `analysis.py`, ved at det er gule strekar under pakken `polars`. 
-
-Vi må altså installere pakken polars. Men, dette **skal** vi alltid gjere i eit virtuelt python-miljø, og det er sterkt anbefalt å bruke eit meir sofistikert verktøy enn pip til å gjøre dette. "Poetry" er i dag det mest utbredte verktøyet, men her skal vi bruke "uv", som er ein ganske ny package manager som fungerer ganske likt, men er raskere og smartere. Vi initierer først prosjektet, som et "library":
+Deretter må vi konfigurere prosjektet til å bruke verktøyet. Legg til følgende i pyproject.toml:
 
 ```
-uv init --lib
+[tool.ruff.lint]
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+]
 ```
 
-Det opprettes no ein del greier:
-- **`.python-version`**: Fil som kun inneheld kva python-versjon vi skal bruke i prosjektet.
-- **`pyproject.toml`**: Spesifikasjon av prosjektet.
-- **`src/be_python/__init__.py`**: Eksempel-kode for prosjektet.
-- **`src/be_python/py.typed`**: Denne fila er ein markør for "type checkers" som forteller at koden vår bruker typer. Vi kommer meir tilbake til dette seinere i kurset.
+Dette er et sett med standard-innstillinger som ofte brukes i python, og kan være et godt utganspunkt. Men her er det mange flere ting som kan legges til dersom man ønsker "strengere" kodestandard. Gå nå til `analysis.py` så vil du se at ruff er på jobb og highlighter (i gult) ting som bryter med innstillingene over. 
 
-Prosjekt-strukturen som settes opp her er typisk for kodeprosjekter, og kan være ein fin struktur å ta utgangspunkt i. Vi kan fjerne eksempel-koden i `src/be_python/__init__.py`, og flytte `analysis.py` inn i mappen `src`.
-
-No kan vi installere pakken som manglar: 
+Dersom vi no ynskjer å fikse problemene så er det fleire måtar å gjere det på. Ruff er tilgjengelig som verktøy blant anna gjennom `uv`, og kode kan formatteres ved å køyre
 
 ```
-uv add polars
+uvx ruff format
 ```
 
-Fleire filer blir oppretta:
-- **`.venv/`**: Mappe for det virtuelle miljøet som høyrer til prosjektet.
-- **`uv.lock`**: Avhengigheiter for prosjektet. Tilsvarer ei `requirements.txt`-fil, men manages av `uv`. Denne er det meningen at skal inn i versjonskontroll, slik at alle som jobbar på same prosjekt brukar same versjonar. 
+Du kan også kjøre det gjennom vscode ved å trykke `CTRL+Shift+P`, søke "ruff", og velge "Ruff: Fix all auto-fixable problems".
 
-Når vi køyrer denne kommandoen skjer fleire ting:
-- Pakken, med ein presis spesifikasjon av sine avhengigheiter, legges til i `uv.lock`.
-- Pakken legges til under dependencies i `pyproject.toml`. Her vil den nyeste versjon bli valgt "by default", men vi kunne spesifisert versjon ved å skrive for eksempel `uv add polars==1.12.0`. Her er det også mogleg å modifisere versjoner rett i `pyproject.toml`, men då må du køyre `uv lock` for at lock-fila skal oppdatere seg (det vil også skje automatisk dersom du køyrer f. eks. `uv run ...`).
-- Selve python-pakken `polars` installeres inn i det virtuelle miljøet under `.venv`- mappen.
-
-Sørg for å sette VSCode til å bruke det nye miljøet. Dette burde dukke opp som ein boks nede i høgre hjørne, men dersom det ikkje gjer det så kan du klikke `CTRL+Shift+P`/`CMD+Shift+P`, søkje opp "Python: Select interpreter". Velg det nye virtuelle miljøet `(.venv)`. 
-
-Dersom du no opnar ein ny terminal, så skal det nye miljøet automatisk bli valgt. Du vil sjå at det fungerer ved at det står `(be-python)` i terminalen:
-
-<img width="412" alt="image" src="https://github.com/user-attachments/assets/18f6132d-68ee-4de4-8cdc-617399440914">
-
-
-Pakken er no installert, som vil bli synlig ved å gå inn i `analysis.py` og sjå at den gule streken under `polars` no er borte, og referansen til `polars` no har blitt riktig fargelagt. Vi kan også endelig køyre koden vår med suksess: 
+Men det beste alternativet er kanskje å legge til i innstillingene til vscode slik at ruff kjører auto-formattering hver gang man lagrer. Dette kan gjøres ved å opprette fila `.vscode/settings.json` og kopiere inn følgjende innhold: 
 
 ```
-uv run src/analysis.py
+{
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    }
+}
 ```
 
-Før vi gjer oss heilt ferdig med pakkehandtering, så skal vi også byggje prosjektet vårt. Kjør følgende kommando: 
+Fra no av vil ruff sørge for at koden vår alltid følgjer vanlige konvensjonar. 
 
-```
-uv build
-```
+Tools kan også settes til å kjøre hver gang man committer code (gjennom pre-commit), og det er vanlig praksis å enforce kjøring av tools i pipeline før man deployer kode. Vi skal dog ikkje sette opp dette i dette kurset, ettersom det i større grad henger sammen med git/cicd (man kan også ha pre-commit i terraform-prosjekter for eksempel).
 
-Når denne kommandoen kjøres så bygges prosjektet vårt under `/dist`-mappen, og vi kunne delt koden vår med andre (typisk som `.whl`-fil).
-
-
-Gå til neste steg (branch): Part-2-tools
+Gå no vidare til part-3-typing
