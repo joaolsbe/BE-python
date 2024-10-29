@@ -16,4 +16,5 @@ For et så smooth kurs som mulig, er det supert om du kan gjøre følgende før 
 
 5. Velg "Open" i popup-menyen som dukker opp (eller velg "file>open folder" og naviger til det nye repoet BE-python). Du skal no ha klona repoet vi skal jobbe med, og skal kunne finne igjen denne readme-fila:
 
-    <img width="900" alt="image" src="https://github.com/joaolsbe/BE-python/assets/104839676/dff25f84-02eb-4ec0-8f59-fa9971439444">
+   <img width="928" alt="image" src="https://github.com/user-attachments/assets/7bbfdfe7-853c-4db6-baf5-3784160adbb2">
+
