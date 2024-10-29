@@ -19,21 +19,21 @@ def analysis1_getMostStreamedSongs(df):
 
 
 def analysis2_getMostPopularByBPM(df):
-    df_Binned = df.filter(pl.col("bpm").is_not_nan()).with_columns(pl.col("bpm").qcut(20).alias("BPMBin"))
-    df_Binned = df_Binned.group_by("BPMBin").agg(pl.mean("streams").alias("AverageStreams"))
-    df_Binned = df_Binned.sort("AverageStreams", descending=True).limit(5)
+    df_Binned = df.filter(pl.col("bpm").is_not_nan()).with_columns(pl.col("bpm").qcut(20).alias("bpm_binned"))
+    df_Binned = df_Binned.group_by("bpm_binned").agg(pl.mean("streams").alias("agg_streams"))
+    df_Binned = df_Binned.sort("agg_streams", descending=True).limit(5)
     print(df_Binned)
 
 
 def analysis3_getDanceability_ByBin(df):
-    df_Binned = df.filter(pl.col("bpm").is_not_nan()).with_columns(pl.col("bpm").qcut(20).alias("BPMBin"))
-    df_Binned = df_Binned.group_by("BPMBin").agg(pl.mean("danceability_%").alias("AverageDanceability"))
-    df_Binned = df_Binned.sort("AverageDanceability", descending=True).limit(5)
+    df_Binned = df.filter(pl.col("bpm").is_not_nan()).with_columns(pl.col("bpm").qcut(20).alias("bpm_binned"))
+    df_Binned = df_Binned.group_by("BPM_binned").agg(pl.mean("danceability_%").alias("agg_danceability_%"))
+    df_Binned = df_Binned.sort("agg_danceability_", descending=True).limit(5)
     print(df_Binned)
 
 def analysis4_getTop30SongsBy(df):
-    df_Binned = df.filter(pl.col("bpm").is_not_nan()).with_columns(pl.col("bpm").qcut(20).alias("BPMBin"))
-    df_best_bpm = df_Binned.filter(pl.col("BPMBin") == "(104, 108]")
+    df_Binned = df.filter(pl.col("bpm").is_not_nan()).with_columns(pl.col("bpm").qcut(20).alias("bpm_binned"))
+    df_best_bpm = df_Binned.filter(pl.col("bpm_binned") == "(104, 108]")
     df_most_popular = df_best_bpm.select("track_name", "artist(s)_name", "streams").sort("streams", descending=True).limit(30)
     print(df_most_popular)
 
@@ -62,9 +62,9 @@ print(df)
 print(df.columns)
 
 def analysis5_GetUserAgesCount(df):
-    df_Binned = df.filter(pl.col("Age").is_not_nan()).with_columns(pl.col("Age").cut([20, 30, 40, 50, 60]).alias("AgeBin"))
-    df_Grouped = df_Binned.group_by("AgeBin").agg(pl.col("User ID").count().alias("NumUsers"))
-    df_Binned = df_Grouped.sort("NumUsers", descending=True).limit(5)
+    df_Binned = df.filter(pl.col("Age").is_not_nan()).with_columns(pl.col("Age").cut([20, 30, 40, 50, 60]).alias("Age_binned"))
+    df_Grouped = df_Binned.group_by("Age_binned").agg(pl.col("User ID").count().alias("agg_User ID"))
+    df_Binned = df_Grouped.sort("agg_User ID", descending=True).limit(5)
     df = df_Binned
     print(df_Binned)
 
