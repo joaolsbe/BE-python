@@ -1,14 +1,11 @@
-from zipfile import ZipFile
-
 import polars as pl
 
 from be_python import COL
 from be_python.transform import agg_by_bins, bin, get_top_n
+from be_python.zipdb import ZipDb
 
-with ZipFile("database/most_played_songs.zip", "r") as zip:
-    filename = zip.filelist[0].filename
-    f = zip.read(filename)
-    df = pl.read_csv(f, separator=",", encoding="ISO-8859-1")
+db = ZipDb()
+df = db.read("most_played_songs")
 
 print("Sample stream data")
 print(df)
@@ -53,12 +50,7 @@ analysis3_getDanceability_ByBin(df)
 print("\n\n\nMost popular songs within most danceable BPM")
 analysis4_getTop30SongsBy(df)
 
-
-with ZipFile("database/users.zip", "r") as zip:
-    filename = zip.filelist[0].filename
-    f = zip.read(filename)
-    df = pl.read_csv(f, separator=",", encoding="ISO-8859-1")
-
+df = db.read("users")
 
 print("\n\n\nSample user data")
 print(df)
