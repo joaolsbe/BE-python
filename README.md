@@ -1,52 +1,26 @@
-# Del 2 - Tools og linting
+# Del 3 - typing
 
-Vi skal nå sette opp prosjektet vårt til å bruke "tools", av typen linting. Tools er ein generell samlebetegnelse på nyttige verktøy for oss som utviklere. I dette kurset skal vi kun jobbe med ett, nemlig "ruff". Dette er eit formateringsverktøy (linting) som hjelper oss å skrive ryddig kode.
+Type hints er din venn!
 
-For den beste opplevelsen her bør det installeres inn i kodevertøyet vi jobber i (VSCode). Gå til "extensions" og installer "ruff". 
-
-Deretter må vi konfigurere prosjektet til å bruke verktøyet. Legg til følgende i pyproject.toml:
+Argumenter kan gis typer ved å legge til `: type` etter argumentet, mens return-typen til ein funksjon gis ved å skrive ` -> type`:
 
 ```
-[tool.ruff.lint]
-select = [
-    # pycodestyle
-    "E",
-    # Pyflakes
-    "F",
-    # pyupgrade
-    "UP",
-    # flake8-bugbear
-    "B",
-    # flake8-simplify
-    "SIM",
-    # isort
-    "I",
-]
+def func(arg1: str, arg2: list[str], arg3: dict[str, int], arg4: pl.DataFrame) -> pl.DataFrame:
+    ....
 ```
 
-Dette er et sett med standard-innstillinger som ofte brukes i python, og kan være et godt utganspunkt. Men her er det mange flere ting som kan legges til dersom man ønsker "strengere" kodestandard. Gå nå til `analysis.py` så vil du se at ruff er på jobb og highlighter (i gult) ting som bryter med innstillingene over. 
+Bruk det, **alltid**! Legg merke til at når du legger til riktig typer i funksjoner så får du med deg autocompletion og andre nyttige eigenskaper.
 
-Dersom vi no ynskjer å fikse problemene så er det fleire måtar å gjere det på. Ruff er tilgjengelig som verktøy blant anna gjennom `uv`, og kode kan formatteres ved å køyre
-
-```
-uvx ruff format
-```
-
-Du kan også kjøre det gjennom vscode ved å trykke `CTRL+Shift+P`, søke "ruff", og velge "Ruff: Fix all auto-fixable problems".
-
-Men det beste alternativet er kanskje å legge til i innstillingene til vscode slik at ruff kjører auto-formattering hver gang man lagrer. Dette kan gjøres ved å opprette fila `.vscode/settings.json` og kopiere inn følgjende innhold: 
+Man kan også gi typer ved variabeldefinisjon (self om dette generelt er unødvendig):
 
 ```
-{
-    "[python]": {
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "charliermarsh.ruff"
-    }
-}
+number: int = 60
 ```
 
-Fra no av vil ruff sørge for at koden vår alltid følgjer vanlige konvensjonar. 
+### Oppgave:
 
-Tools kan også settes til å kjøre hver gang man committer code (gjennom pre-commit), og det er vanlig praksis å enforce kjøring av tools i pipeline før man deployer kode. Vi skal dog ikkje sette opp dette i dette kurset, ettersom det i større grad henger sammen med git/cicd (man kan også ha pre-commit i terraform-prosjekter for eksempel).
+- Implementer typing i alle funksjoner.
 
-Gå no vidare til part-3-typing
+Et annet triks her kan være å introdusere variabler for kolonnenavn. Det kan kanskje oppleves overkill for mange, men fordelene er at man får auto-completion her også, du slipper å huske hvordan man skriver de ulike navnene, og kanskje viktigst av alt, aldri meir skrivefeil på kolonnenavn. 
+
+Et annet tips: Tenk gjenbruk i alt. Dersom du begynner å utvikle logikk som kan være nyttig for andre, så er det på tide å modularisere det og gjøre det gjenbrukbart. Se neste steg for et eksempel på hvordan det kan se ut.
