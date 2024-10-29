@@ -1,0 +1,13 @@
+class Col:
+    track_name = "track_name"
+    artist_name = "artist(s)_name"
+    streams = "streams"
+    agg_streams = "agg_streams"
+    bpm = "bpm"
+    bpm_bin = "bpm_binned"
+    danceability = "danceability_%"
+    agg_danceability = "agg_danceability_%"
+    age = "Age"
+    age_bin = "Age_binned"
+    user_id = "User ID"
+    agg_user_id = "agg_User ID"
