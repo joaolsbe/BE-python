@@ -74,3 +74,5 @@ def agg_by_bins(
 ```
 
 Skriv så en test for denne. 
+
+Gå så videre til part-5-object-oriented
