@@ -27,8 +27,8 @@ def analysis2_getMostPopularByBPM(df):
 
 def analysis3_getDanceability_ByBin(df):
     df_Binned = df.filter(pl.col("bpm").is_not_nan()).with_columns(pl.col("bpm").qcut(20).alias("bpm_binned"))
-    df_Binned = df_Binned.group_by("BPM_binned").agg(pl.mean("danceability_%").alias("agg_danceability_%"))
-    df_Binned = df_Binned.sort("agg_danceability_", descending=True).limit(5)
+    df_Binned = df_Binned.group_by("bpm_binned").agg(pl.mean("danceability_%").alias("agg_danceability_%"))
+    df_Binned = df_Binned.sort("agg_danceability_%", descending=True).limit(5)
     print(df_Binned)
 
 def analysis4_getTop30SongsBy(df):
